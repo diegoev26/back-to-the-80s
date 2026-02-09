@@ -1,0 +1,13 @@
+{
+  "name": "template",
+  "private": true,
+  "workspaces": [
+    "shared",
+    "client",
+    "backend"
+  ],
+  "scripts": {
+    "dev:front": "npm run dev -w client",
+    "dev:back": "npm run dev -w backend"
+  }
+}
