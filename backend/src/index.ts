@@ -18,7 +18,7 @@ app.use(cors());
 app.use(morgan("tiny"));
 app.use(express.static(__dirname + "/public"));
 
-app.use(testRoutes);
+app.use("/api", testRoutes);
 
 app.set("port", config.port);
 app.listen(app.get("port"), (err) =>
