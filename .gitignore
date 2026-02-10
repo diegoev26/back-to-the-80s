@@ -1,14 +1,14 @@
-node_modules/
-helpers/
+**/node_modules/
+**/helpers/
 .pnp
 .pnp.js
 
-dist/
-.next/
-out/
-build/
-.serverless/
-.esbuild/
+**/dist/
+**/.next/
+**/out/
+**/build/
+**/.serverless/
+**/.esbuild/
 
 .env
 .env.*
@@ -22,3 +22,16 @@ yarn-error.log*
 .DS_Store
 Thumbs.db
 
+
+**/bin/
+**/obj/
+*.user
+*.userosscache
+*.sln.docstates
+**/launchSettings.json
+**/appsettings.Development.json
+
+
+.vs/
+*.sln.docstates
+*.suo
