@@ -8,8 +8,8 @@ namespace service.Controllers;
 
 public class TestController : ControllerBase
 {
-    [HttpGet]
-    public IActionResult Test([FromQuery] string data)
+    [HttpPost]
+    public IActionResult Test()
     {
         var response = new ApiResponse<object, string, object>
         {
