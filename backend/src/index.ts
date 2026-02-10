@@ -6,6 +6,7 @@ import { fileURLToPath } from "url";
 import { dirname } from "path";
 
 import config from "./config/config.js";
+import testRoutes from "./routes/test.routes.js";
 
 const app = express(),
   __filename = fileURLToPath(import.meta.url),
@@ -16,6 +17,8 @@ app.use(bodyParser.json({ limit: "100mb" }));
 app.use(cors());
 app.use(morgan("tiny"));
 app.use(express.static(__dirname + "/public"));
+
+app.use(testRoutes);
 
 app.set("port", config.port);
 app.listen(app.get("port"), (err) =>
