@@ -12,7 +12,11 @@
     "dev:service": "dotnet watch --project service/service.csproj",
     "types": "npx openapi-typescript http://127.0.0.1:5197/swagger/v1/swagger.json -o ./shared/src/types/api-generated.ts",
     "sync:types": "node scripts/sync-types.js",
-    "dev:all": "npx concurrently -k -n \"SV,TS,BE,CL\" -c \"magenta,blue,green,cyan\" \"npm run dev:service\" \"npm run sync:types\" \"npm run dev:backend\" \"npm run dev:client\""
+    "dev:all": "npx concurrently -k -n \"SV,TS,BE,CL\" -c \"magenta,blue,green,cyan\" \"npm run dev:service\" \"npm run sync:types\" \"npm run dev:backend\" \"npm run dev:client\"",
+    "build:client": "npm run build -w client",
+    "build:backend": "npm run build -w backend",
+    "build:service": "dotnet publish -c Release -o out",
+    "build:all": "npx concurrently -k -n \"SV,TS,BE,CL\" -c \"magenta,blue,green,cyan\" \"npm run build:service\" \"npm run sync:types\" \"npm run build:backend\" \"npm run build:client\""
   },
   "devDependencies": {
     "concurrently": "^9.2.1"
