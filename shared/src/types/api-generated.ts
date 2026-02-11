@@ -46,7 +46,24 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        get?: never;
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
         put?: never;
         post: {
             parameters: {
@@ -55,7 +72,13 @@ export interface paths {
                 path?: never;
                 cookie?: never;
             };
-            requestBody?: never;
+            requestBody?: {
+                content: {
+                    "application/json": components["schemas"]["ObjectApiRequest"];
+                    "text/json": components["schemas"]["ObjectApiRequest"];
+                    "application/*+json": components["schemas"]["ObjectApiRequest"];
+                };
+            };
             responses: {
                 /** @description OK */
                 200: {
@@ -75,7 +98,11 @@ export interface paths {
 }
 export type webhooks = Record<string, never>;
 export interface components {
-    schemas: never;
+    schemas: {
+        ObjectApiRequest: {
+            data?: unknown;
+        };
+    };
     responses: never;
     parameters: never;
     requestBodies: never;

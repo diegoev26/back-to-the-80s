@@ -1,6 +1,6 @@
 const { exec } = require("child_process");
 
-const URL = "http://127.0.0.1:5197/openapi/v1.json";
+const URL = "http://127.0.0.1:5197/swagger/v1/swagger.json";
 let lastHash = "";
 
 console.log("👀 Watching for API changes...");

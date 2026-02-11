@@ -10,7 +10,7 @@
     "dev:client": "npm run dev -w client",
     "dev:backend": "npm run dev -w backend",
     "dev:service": "dotnet watch --project service/service.csproj",
-    "types": "npx openapi-typescript http://127.0.0.1:5197/openapi/v1.json -o ./shared/src/types/api-generated.ts",
+    "types": "npx openapi-typescript http://127.0.0.1:5197/swagger/v1/swagger.json -o ./shared/src/types/api-generated.ts",
     "sync:types": "node scripts/sync-types.js",
     "dev:all": "npx concurrently -k -n \"SV,TS,BE,CL\" -c \"magenta,blue,green,cyan\" \"npm run dev:service\" \"npm run sync:types\" \"npm run dev:backend\" \"npm run dev:client\""
   },
