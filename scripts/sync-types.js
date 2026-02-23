@@ -1,6 +1,7 @@
 const { exec } = require("child_process");
 
-const URL = "http://127.0.0.1:5000/swagger/v1/swagger.json";
+const URL = "http://127.0.0.1:5000/swagger/v1/swagger.json",
+  watchMode = !process.argv.includes("--once");
 let lastHash = "";
 
 console.log("👀 Watching for API changes...");
@@ -25,7 +26,9 @@ async function checkApi() {
   } catch (e) {
     // El servidor está caído o reiniciando, no hacemos nada
   }
-  setTimeout(checkApi, 2000); // Reintenta cada 2 segundos
+  if (watchMode) {
+    setTimeout(checkApi, 2000); // Reintenta cada 2 segundos
+  }
 }
 
 checkApi();
