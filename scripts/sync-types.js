@@ -4,8 +4,7 @@ const URL = "http://127.0.0.1:5000/swagger/v1/swagger.json",
   watchMode = !process.argv.includes("--once");
 let lastHash = "";
 
-console.log("👀 Watching for API changes...");
-
+console.log("sync-types init...");
 async function checkApi() {
   try {
     const response = await fetch(URL);
@@ -27,6 +26,7 @@ async function checkApi() {
     // El servidor está caído o reiniciando, no hacemos nada
   }
   if (watchMode) {
+    console.log("👀 Watching for API changes...");
     setTimeout(checkApi, 2000); // Reintenta cada 2 segundos
   }
 }
