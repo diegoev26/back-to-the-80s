@@ -18,7 +18,7 @@
     "build:client": "npm run build -w client",
     "build:backend": "npm run build -w backend",
     "build:service": "dotnet publish -c Release -o out",
-    "build:all": "npx concurrently -k -n \"SH,SV,TS,BE,CL\" -c \"yellow,magenta,blue,green,cyan\" \"npm run build:shared\" \"npm run build:service\" \"npm run sync:types:once\" \"npm run build:backend\" \"npm run build:client\""
+    "build:all": "npm run build:service && npm run sync:types:once && npm run build:shared && npm run build:backend && npm run build:client"
   },
   "devDependencies": {
     "concurrently": "^9.2.1"
