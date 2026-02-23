@@ -2,7 +2,7 @@
   "name": "template",
   "private": true,
   "workspaces": [
-    "shared",
+    "@project/shared",
     "client",
     "backend"
   ],
@@ -13,6 +13,7 @@
     "types": "npx openapi-typescript http://127.0.0.1:5000/swagger/v1/swagger.json -o ./shared/src/types/api-generated.ts",
     "sync:types": "node scripts/sync-types.js",
     "dev:all": "npx concurrently -k -n \"SV,TS,BE,CL\" -c \"magenta,blue,green,cyan\" \"npm run dev:service\" \"npm run sync:types\" \"npm run dev:backend\" \"npm run dev:client\"",
+    "build:shared": "tsc -p shared/tsconfig.json",
     "build:client": "npm run build -w client",
     "build:backend": "npm run build -w backend",
     "build:service": "dotnet publish -c Release -o out",
