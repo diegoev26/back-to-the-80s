@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { apiPublicRoutes, ApiResponse } from "@project/shared";
+import { publicRoutes, ApiResponse } from "@project/shared";
 
 export const useApi = <T>() => {
   const [loading, setLoading] = useState(false);
@@ -8,7 +8,7 @@ export const useApi = <T>() => {
   const execute = async (url: string) => {
     setLoading(true);
     try {
-      const response = await fetch(apiPublicRoutes.backend + url);
+      const response = await fetch(publicRoutes.api + url);
       const data: ApiResponse<T> = await response.json();
       setResult(data);
       return data;

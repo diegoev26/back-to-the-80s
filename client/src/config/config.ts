@@ -1,6 +1,7 @@
+import { publicRoutes } from "@project/shared";
+
 export const config = {
-  publicUrl: process.env?.NEXT_PUBLIC_PUBLIC_URL || "http://localhost:3000",
-  apiUrl: process.env?.NEXT_PUBLIC_API_URL,
+  apiUrl: publicRoutes.api,
 } as const;
 
 export default config;

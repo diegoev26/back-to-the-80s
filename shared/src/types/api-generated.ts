@@ -85,7 +85,22 @@ export interface paths {
                     headers: {
                         [name: string]: unknown;
                     };
-                    content?: never;
+                    content: {
+                        "text/plain": components["schemas"]["ObjectStringObjectApiResponse"];
+                        "application/json": components["schemas"]["ObjectStringObjectApiResponse"];
+                        "text/json": components["schemas"]["ObjectStringObjectApiResponse"];
+                    };
+                };
+                /** @description Bad Request */
+                400: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "text/plain": components["schemas"]["ObjectStringObjectApiResponse"];
+                        "application/json": components["schemas"]["ObjectStringObjectApiResponse"];
+                        "text/json": components["schemas"]["ObjectStringObjectApiResponse"];
+                    };
                 };
             };
         };
@@ -101,6 +116,23 @@ export interface components {
     schemas: {
         ObjectApiRequest: {
             data?: unknown;
+        };
+        ObjectObjectResponseData: {
+            data?: unknown;
+            message?: string | null;
+            reference?: unknown;
+        };
+        ObjectStringObjectApiResponse: {
+            /** Format: int32 */
+            code?: number;
+            response?: components["schemas"]["ObjectObjectResponseData"];
+            error?: components["schemas"]["StringObjectResponseData"];
+            reference?: unknown;
+        };
+        StringObjectResponseData: {
+            data?: string | null;
+            message?: string | null;
+            reference?: unknown;
         };
     };
     responses: never;

@@ -2,12 +2,15 @@ import type { Request, Response } from "express";
 import { sendResponse } from "functions/api.functions.js";
 import type { paths } from "@project/shared";
 import axios from "axios";
+import config from "../config/config.js";
 
 export const testApi = async (_: Request, res: Response) => {
   try {
     const url: keyof paths = "/api/test";
+    console.log(`${config?.routes?.serviceUrl}${url}`);
+
     try {
-      const { data } = await axios(`http://127.0.0.1:5197${url}`, {
+      const { data } = await axios(`${config?.routes?.serviceUrl}${url}`, {
         method: "post",
         data: { data: {} },
       });
