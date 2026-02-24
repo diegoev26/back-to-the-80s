@@ -1,7 +1,7 @@
 import { publicRoutes } from "@project/shared";
 
 export const config = {
-  apiUrl: publicRoutes.api,
+  ...publicRoutes,
 } as const;
 
 export default config;
