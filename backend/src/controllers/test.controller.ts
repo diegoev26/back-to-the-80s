@@ -27,7 +27,7 @@ export const testApi = async (_: Request, res: Response) => {
         });
       }
     } else {
-      return sendResponse(res, 404, {
+      return sendResponse(res, 503, {
         error: { message: "No se encuentra la ruta de servicio" },
       });
     }
