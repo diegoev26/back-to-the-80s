@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { publicRoutes } from "@project/shared";
+import config from "config/config.js";
 import { testApi } from "controllers/test.controller.js";
 const router = Router();
 
-router.get(publicRoutes.test, testApi);
+if (config?.routes?.test) router.get(config?.routes?.test, testApi);
 
 export default router;
