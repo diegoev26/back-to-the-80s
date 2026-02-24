@@ -1,10 +1,8 @@
 import { MetadataRoute } from "next";
-import config from "@/config/config";
-const { publicUrl } = config;
 export const dynamic = "force-static";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = publicUrl;
+  const baseUrl = "http://localhost/";
 
   // 1. Rutas Estáticas
   const staticRoutes = [""].map((route) => ({
