@@ -7,23 +7,28 @@ import config from "../config/config.js";
 export const testApi = async (_: Request, res: Response) => {
   try {
     const url: keyof paths = "/api/test";
-    console.log(`${config?.routes?.serviceUrl}${url}`);
 
-    try {
-      const { data } = await axios(`${config?.routes?.serviceUrl}${url}`, {
-        method: "post",
-        data: { data: {} },
-      });
-      console.log(data);
+    if (config?.routes?.service) {
+      try {
+        const { data } = await axios(`${config?.routes?.service}${url}`, {
+          method: "post",
+          data: { data: {} },
+        });
+        console.log(data);
 
-      return sendResponse(res, 200, {
-        response: { message: "Gateway <> Service" },
-      });
-    } catch (error: any) {
-      return sendResponse(res, 502, {
-        error: {
-          message: error?.message ?? "Error esperando respuesta de servicio",
-        },
+        return sendResponse(res, 200, {
+          response: { message: "Gateway <> Service" },
+        });
+      } catch (error: any) {
+        return sendResponse(res, 502, {
+          error: {
+            message: error?.message ?? "Error esperando respuesta de servicio",
+          },
+        });
+      }
+    } else {
+      return sendResponse(res, 404, {
+        error: { message: "No se encuentra la ruta de servicio" },
       });
     }
   } catch (error: any) {
