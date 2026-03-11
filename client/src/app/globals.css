@@ -1,26 +1,38 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* 1. Definición de Variables de Marca */
+@theme {
+  --color-primary: #00aae4;
+  --color-secondary: #808080;
+  --color-success: #2e7d32;
+  --color-warning: #f59e0b;
+  --color-danger: #d20a28;
+  --color-dark: #191919;
+  --color-muted: #6b7280;
+
+  --font-primary: "Arial", sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@variant dark (&:where(.dark, .dark *));
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: var(--color-dark);
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  .dark {
+    --background: var(--color-dark);
+    --foreground: #ffffff;
+    --color-muted: #9ca3af;
+    --color-secondary: #a1a1aa;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    transition:
+      background-color 0.2s,
+      color 0.2s;
+  }
 }

@@ -1,10 +1,8 @@
 "use client";
-import { useApi } from "@/hooks/test.hook";
+import { useApi } from "./_hooks/test.hook";
 import { publicRoutes } from "@project/shared";
 
-type Props = {};
-
-const apiTest = (props: Props) => {
+const apiTest = () => {
   const { execute, loading, result } = useApi<{ message: string }>();
   const handleTest = () => {
     execute(publicRoutes.test ?? "");
