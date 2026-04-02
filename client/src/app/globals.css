@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+/* 1. Definición de Variables de Marca */
+@theme {
+  --color-primary: #00ffff;
+  --color-secondary: #ff8a00;
+  --color-success: #2e7d32;
+  --color-warning: #ffe600;
+  --color-danger: #ff0000;
+  --color-dark: #000000;
+  --color-muted: #ffffff;
+
+  --font-primary: "Arial", sans-serif;
+}
+
+@variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: var(--color-dark);
+  }
+
+  .dark {
+    --background: var(--color-dark);
+    --foreground: #ffffff;
+    --color-muted: #9ca3af;
+    --color-secondary: #a1a1aa;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    transition:
+      background-color 0.2s,
+      color 0.2s;
+  }
+}
