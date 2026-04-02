@@ -74,7 +74,7 @@ export default function Page() {
       >
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-            <h2 className="text-5xl md:text-7xl font-black italic tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-danger to-warning py-2 pe-6">
+            <h2 className="text-5xl md:text-7xl font-black italic tracking-tighter text-transparent bg-clip-text bg-linear-to-r from-danger to-warning py-2 pe-6">
               EL FLASHBACK
             </h2>
             <p className="text-muted/50 max-w-xs text-sm font-bold uppercase tracking-widest leading-relaxed border-l-2 border-primary pl-4">
@@ -94,7 +94,7 @@ export default function Page() {
                 S3_ASSET_02
               </div>
             </div>
-            <div className="relative group overflow-hidden bg-white/5 aspect-[3/4] rounded-xl border border-white/10">
+            <div className="relative group overflow-hidden bg-white/5 aspect-3/4 rounded-xl border border-white/10">
               <div className="absolute inset-0 flex items-center justify-center text-[10px] text-muted/20 uppercase tracking-[0.5em] font-bold">
                 S3_ASSET_03
               </div>
