@@ -1,4 +1,5 @@
 import CommunityCard from "@/components/ComunityCard";
+import GallerySection from "@/components/Galery";
 import Nav from "@/components/Nav";
 
 export default function Page() {
@@ -67,41 +68,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Gallery Preview Section */}
-      <section
-        id="galeria"
-        className="py-24 px-8 bg-linear-to-b from-dark to-[#0a0a0a]"
-      >
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-            <h2 className="text-5xl md:text-7xl font-black italic tracking-tighter text-transparent bg-clip-text bg-linear-to-r from-danger to-warning py-2 pe-6">
-              EL FLASHBACK
-            </h2>
-            <p className="text-muted/50 max-w-xs text-sm font-bold uppercase tracking-widest leading-relaxed border-l-2 border-primary pl-4">
-              Reviví los mejores momentos de nuestras últimas ediciones.
-            </p>
-          </div>
-
-          <div className="columns-1 md:columns-3 gap-6 space-y-6">
-            <div className="relative group overflow-hidden bg-white/5 aspect-4/5 rounded-xl border border-white/10 hover:border-primary transition-colors duration-500">
-              <div className="absolute inset-0 flex items-center justify-center text-[10px] text-muted/20 uppercase tracking-[0.5em] font-bold">
-                S3_ASSET_01
-              </div>
-              <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-all duration-700" />
-            </div>
-            <div className="relative group overflow-hidden bg-white/5 aspect-square rounded-xl border border-white/10">
-              <div className="absolute inset-0 flex items-center justify-center text-[10px] text-muted/20 uppercase tracking-[0.5em] font-bold">
-                S3_ASSET_02
-              </div>
-            </div>
-            <div className="relative group overflow-hidden bg-white/5 aspect-3/4 rounded-xl border border-white/10">
-              <div className="absolute inset-0 flex items-center justify-center text-[10px] text-muted/20 uppercase tracking-[0.5em] font-bold">
-                S3_ASSET_03
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <GallerySection />
     </main>
   );
 }
