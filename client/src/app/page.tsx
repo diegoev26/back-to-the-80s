@@ -32,7 +32,7 @@ export default function Page() {
             </h1>
 
             <img
-              src={`/logo-removebg.png`}
+              src={`/logo-original.png`}
               alt="Logo oficial de Back to the 80s"
               className="h-auto w-[320px] md:w-187.5 lg:w-237.5 drop-shadow-[0_10px_30px_rgba(255,100,0,0.5)]"
             />
