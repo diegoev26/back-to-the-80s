@@ -22,6 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
+      <meta name="apple-mobile-web-app-title" content="BackToThe80s" />
       <body>
         {children}
         <Footer />

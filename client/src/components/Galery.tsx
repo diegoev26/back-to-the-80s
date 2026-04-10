@@ -43,7 +43,7 @@ export default function GallerySection() {
     { id: 2, file: "flashback-02.jpg", size: "aspect-square" },
     { id: 3, file: "flashback-03.jpg", size: "aspect-[3/4]" },
     { id: 4, file: "flashback-04.jpg", size: "aspect-square" },
-    { id: 5, file: "flashback-01.jpg", size: "aspect-[4/5]" },
+    { id: 5, file: "flashback-05.jpg", size: "aspect-[4/5]" },
   ];
 
   return (
@@ -54,7 +54,7 @@ export default function GallerySection() {
       <div className="max-w-7xl mx-auto">
         {/* Cabecera idéntica a tus imágenes de referencia */}
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-          <h2 className="text-5xl md:text-7xl font-black italic tracking-tighter text-transparent bg-clip-text bg-linear-to-r from-danger to-warning py-2 pe-6 uppercase">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl font-black italic tracking-tighter text-transparent bg-clip-text bg-linear-to-r from-danger to-warning py-2 pe-6 uppercase leading-none">
             EL FLASHBACK
           </h2>
           <p className="text-muted/50 max-w-xs text-sm font-bold uppercase tracking-widest leading-relaxed border-l-2 border-primary pl-4">

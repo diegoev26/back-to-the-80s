@@ -1,6 +1,6 @@
 {
-  "name": "FiestaBackToThe80s",
-  "short_name": "The80s",
+  "name": "BackToThe80s",
+  "short_name": "BackToThe80s",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",

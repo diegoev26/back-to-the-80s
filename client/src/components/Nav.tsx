@@ -1,4 +1,5 @@
 "use client";
+import config from "@/config/env.config";
 import { useState, useEffect } from "react";
 
 const Nav = () => {
@@ -21,7 +22,7 @@ const Nav = () => {
           className="relative z-50 transition-transform active:scale-95"
         >
           <img
-            src="/favicon.svg"
+            src={`${config?.assets}/logo-removebg.png`}
             alt="Back to the 80s Logo"
             className="h-10 w-auto md:h-14 drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]"
           />
@@ -44,7 +45,8 @@ const Nav = () => {
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
           </a>
           <a
-            href="#entradas"
+            href="https://linktr.ee/fiestabacktothe80s"
+            target="_blank"
             className="bg-danger text-white px-8 py-3 rounded-full font-black italic tracking-tighter hover:bg-warning hover:text-dark transition-all duration-500 shadow-[0_0_30px_rgba(255,0,0,0.4)]"
           >
             ENTRADAS
@@ -95,7 +97,8 @@ const Nav = () => {
             GALERÍA
           </a>
           <a
-            href="#entradas"
+            href="https://linktr.ee/fiestabacktothe80s"
+            target="_blank"
             onClick={() => setIsOpen(false)}
             className="w-full max-w-xs text-center bg-danger text-white py-6 rounded-full font-black italic text-2xl shadow-[0_0_40px_rgba(255,0,0,0.5)] uppercase active:scale-95 transition-transform"
           >
@@ -105,7 +108,7 @@ const Nav = () => {
           {/* Sello de cierre al final del menú */}
           <div className="absolute bottom-12 text-center">
             <p className="text-primary/40 text-[10px] font-bold tracking-[0.4em] uppercase border-t border-primary/10 pt-4">
-              Buenos Aires · Edición Limitada
+              La mejor fiesta 80s de Latinoamerica
             </p>
           </div>
         </div>
