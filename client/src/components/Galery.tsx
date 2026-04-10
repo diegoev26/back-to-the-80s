@@ -47,10 +47,7 @@ export default function GallerySection() {
   ];
 
   return (
-    <section
-      id="galeria"
-      className="py-24 px-8 bg-linear-to-b from-dark to-[#0a0a0a]"
-    >
+    <section className="py-24 px-8 bg-linear-to-b from-dark to-[#0a0a0a]">
       <div className="max-w-7xl mx-auto">
         {/* Cabecera idéntica a tus imágenes de referencia */}
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
