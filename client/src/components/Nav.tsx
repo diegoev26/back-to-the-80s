@@ -22,7 +22,7 @@ const Nav = () => {
           className="relative z-50 transition-transform active:scale-95"
         >
           <img
-            src={`${config?.assets}/logo-removebg.png`}
+            src={`/logo-removebg.png`}
             alt="Back to the 80s Logo"
             className="h-10 w-auto md:h-14 drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]"
           />

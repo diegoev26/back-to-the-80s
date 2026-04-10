@@ -1,5 +1,3 @@
-import config from "@/config/env.config";
-
 const GalleryItem = ({
   fileName,
   alt,
@@ -9,7 +7,7 @@ const GalleryItem = ({
   alt: string;
   size: string;
 }) => {
-  const src = `${config?.assets}/${fileName}`;
+  const src = `/${fileName}`;
 
   return (
     <div
