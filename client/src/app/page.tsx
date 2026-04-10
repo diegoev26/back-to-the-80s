@@ -30,12 +30,18 @@ export default function Page() {
               BACK TO THE 80S - Buenos Aires, Edición Limitada - La mejor fiesta
               80s de Latinoamerica
             </h1>
-
-            <img
-              src={`/logo-original.png`}
-              alt="Logo oficial de Back to the 80s"
-              className="h-auto w-[320px] md:w-187.5 lg:w-237.5 drop-shadow-[0_10px_30px_rgba(255,100,0,0.5)]"
-            />
+            <a
+              href="https://www.instagram.com/fiestabacktothe80s/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block transition-transform duration-300 hover:scale-[1.02]"
+            >
+              <img
+                src={`/logo-original.png`}
+                alt="Logo oficial de Back to the 80s"
+                className="h-auto w-[320px] md:w-187.5 lg:w-237.5 drop-shadow-[0_10px_30px_rgba(255,100,0,0.5)]"
+              />
+            </a>
           </div>
 
           {/* Eslogan principal */}
