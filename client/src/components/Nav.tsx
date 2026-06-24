@@ -1,5 +1,4 @@
 "use client";
-import config from "@/config/env.config";
 import { useState, useEffect } from "react";
 
 const Nav = () => {
