@@ -1,7 +1,6 @@
 import CommunityCard from "@/components/ComunityCard";
 import GallerySection from "@/components/Galery";
 import Nav from "@/components/Nav";
-import config from "@/config/env.config";
 
 export default function Page() {
   return (
