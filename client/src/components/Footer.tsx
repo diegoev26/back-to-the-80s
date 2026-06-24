@@ -1,4 +1,3 @@
-import React from "react";
 import { FaInstagram, FaFacebookF, FaTiktok, FaYoutube } from "react-icons/fa";
 
 const socialLinks = [
@@ -37,7 +36,7 @@ const Footer = () => {
           <p className="text-primary font-bold uppercase tracking-[0.4em] text-xs mb-2">
             La mejor fiesta 80s de Latinoamérica
           </p>
-          <div className="h-1 w-20 bg-gradient-to-r from-danger via-secondary to-warning mx-auto rounded-full" />
+          <div className="h-1 w-20 bg-linear-to-r from-danger via-secondary to-warning mx-auto rounded-full" />
         </div>
 
         {/* Redes Sociales Dinámicas */}
