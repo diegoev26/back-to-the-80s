@@ -1,5 +1,5 @@
+import Carousel from "@/components/Carousel";
 import CommunityCard from "@/components/ComunityCard";
-import GallerySection from "@/components/Galery";
 import Nav from "@/components/Nav";
 
 export default function Page() {
@@ -83,7 +83,7 @@ export default function Page() {
         </div>
       </section>
 
-      <GallerySection />
+      <Carousel />
     </main>
   );
 }
