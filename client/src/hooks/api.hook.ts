@@ -1,6 +1,6 @@
 "use client";
 import { useState, useCallback, useEffect } from "react";
-import { ApiRequest, ApiResponse } from "@hafele/shared";
+import { ApiRequest, ApiResponse } from "@back-to-the-80s/shared";
 import { useGlobalContext } from "@/context/global.context";
 import { setApiUser } from "@/lib/api.client";
 import { ApiFunction } from "@/types/api.types";

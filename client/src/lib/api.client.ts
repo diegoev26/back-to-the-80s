@@ -1,6 +1,10 @@
-import { ApiRequest, ApiResponse, privateOptions } from "@shared";
+import {
+  ApiRequest,
+  ApiResponse,
+  apiPublicRoutes,
+} from "@back-to-the-80s/shared";
 
-const BASE_URL = `${privateOptions?.root?.url ?? ""}${privateOptions?.root?.api ?? ""}`;
+const BASE_URL = `${apiPublicRoutes?.root?.api ?? ""}`;
 
 let userid: string | undefined;
 
