@@ -1,0 +1,32 @@
+{
+  "name": "back-to-the-80s",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "workspaces": [
+    "client",
+    "serverless"
+  ],
+  "scripts": {
+    "dev:client": "npm run dev -w client",
+    "dev:serverless": "npm run dev -w serverless",
+    "dev:all": "npx concurrently -k -n \"SL,CL\" -c \"green,cyan\" \"npm run dev:serverless\" \"npm run dev:client\"",
+    "build:client": "npm run build -w client",
+    "build:serverless": "npm run build -w serverless",
+    "build:all": "npm run build:serverless && npm run build:client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diegoev26/back-to-the-80s.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/diegoev26/back-to-the-80s/issues"
+  },
+  "homepage": "https://github.com/diegoev26/back-to-the-80s#readme",
+  "devDependencies": {
+    "concurrently": "^10.0.3"
+  }
+}

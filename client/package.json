@@ -1,6 +1,6 @@
 {
-  "name": "back-to-the-80s",
-  "version": "0.1.0",
+  "name": "client",
+  "description": "",
   "private": true,
   "scripts": {
     "dev": "(if exist .next rmdir /s /q .next) && next dev",

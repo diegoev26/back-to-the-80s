@@ -1,0 +1,16 @@
+{
+  "name": "serverless",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "(if exist .wrangler rmdir /s /q .wrangler) && wrangler dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260625.1",
+    "typescript": "^6.0.3",
+    "wrangler": "^4.105.0"
+  }
+}
