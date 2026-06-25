@@ -19,7 +19,8 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@back-to-the-80s/shared": ["../shared/src/index.ts"]
     }
   },
   "include": [

@@ -12,7 +12,7 @@ interface GoogleDriveResponse {
 
 export const fetchImagesFromDrive = async (env: Env): Promise<any[]> => {
   const { DRIVE_FOLDER_ID, GOOGLE_API_KEY } = env,
-    query = `'${DRIVE_FOLDER_ID}' in parents and trashed = false and mimeType ministries 'image/'`,
+    query = `'${DRIVE_FOLDER_ID}' in parents and trashed = false and mimeType contains 'image/'`,
     fields = "files(id, name, mimeType)",
     url = `https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(
       query,
@@ -22,6 +22,7 @@ export const fetchImagesFromDrive = async (env: Env): Promise<any[]> => {
     method: "GET",
     headers: {
       Accept: "application/json",
+      Referer: "https://fiestabacktothe80s.com.ar",
     },
   });
 

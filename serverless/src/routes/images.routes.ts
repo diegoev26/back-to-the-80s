@@ -18,6 +18,5 @@ export const handleImageRoutes = async (
 
   if (controller) return await controller(request, env);
 
-  // Si no matcheó en nuestro diccionario, devolvemos null para que el index maneje el 404
   return null;
 };

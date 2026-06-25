@@ -8,6 +8,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "@back-to-the-80s/shared": "*"
+  },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20260625.1",
     "typescript": "^6.0.3",

@@ -8,7 +8,7 @@ const ROUTER: Record<
   string,
   (req: Request, env: Env, url: string) => Promise<Response | null>
 > = {
-  "/api/images": handleImageRoutes,
+  "/images": handleImageRoutes,
 };
 
 export default {

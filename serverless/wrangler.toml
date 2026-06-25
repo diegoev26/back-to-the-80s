@@ -1,6 +1,3 @@
 name = "backto80s-api"
 main = "index.ts"
 compatibility_date = "2026-06-25" 
-
-[vars]
-DRIVE_FOLDER_ID = "1BIyl-2WwnEz07g4jWv3e9JEOag0X4oH2"
