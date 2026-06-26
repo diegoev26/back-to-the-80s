@@ -1,10 +1,7 @@
-import {
-  ApiRequest,
-  ApiResponse,
-  apiPublicRoutes,
-} from "@back-to-the-80s/shared";
+import config from "@/config/env.config";
+import { ApiRequest, ApiResponse } from "@back-to-the-80s/shared";
 
-const BASE_URL = `${apiPublicRoutes?.root?.api ?? ""}`;
+const BASE_URL = `${config?.root?.serverless ?? ""}`;
 
 let userid: string | undefined;
 

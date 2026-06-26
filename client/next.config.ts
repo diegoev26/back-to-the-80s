@@ -6,7 +6,6 @@ import os from "os";
 
 const networkInterfaces = os.networkInterfaces(),
   localIPs: string[] = [];
-
 Object.keys(networkInterfaces).forEach((interfaceName) => {
   networkInterfaces[interfaceName]?.forEach((iface) => {
     if (iface.family === "IPv4" && !iface.internal)
@@ -21,7 +20,7 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   allowedDevOrigins: [...localIPs],
-  transpilePackages: ["@shared"],
+  transpilePackages: ["@back-to-the-80s/shared"],
 };
 
 export default nextConfig;

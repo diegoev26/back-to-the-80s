@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 import config from "@/config/env.config";
-const { publicUrl } = config;
+const { url: publicUrl } = config.root;
 export const dynamic = "force-static";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

@@ -13,10 +13,3 @@ export type FunctionResponse<D = any, E = any, R = any> =
       error?: E | E[];
       reference?: R | R[];
     };
-
-export type WAStatus =
-  | "INITIALIZING"
-  | "QR_READY"
-  | "AUTHENTICATING"
-  | "READY"
-  | "DISCONNECTED";

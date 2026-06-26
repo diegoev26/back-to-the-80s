@@ -1,3 +1,5 @@
+export * from "./interfaces/google.interfaces";
+
 export * from "./options/api.options";
 export * from "./options/private.options";
 

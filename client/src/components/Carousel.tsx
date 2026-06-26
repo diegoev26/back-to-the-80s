@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+import { getDriveImages } from "@/apis/images.apis";
 
 const CarouselItem = ({
   fileName,
@@ -72,6 +73,14 @@ export default function Carousel() {
     if (!emblaApi) return;
     setSelectedIndex(emblaApi.selectedScrollSnap());
   }, [emblaApi]);
+
+  useEffect(() => {
+    async function initImages() {
+      console.log(await getDriveImages());
+    }
+
+    initImages();
+  }, []);
 
   useEffect(() => {
     if (!emblaApi) return;

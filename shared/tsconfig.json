@@ -13,6 +13,7 @@
       "@back-to-the-80s/shared": ["src/index.ts"],
       "@back-to-the-80s/shared/*": ["src/*"]
     },
+    "types": ["node"],
     "composite": true,
     "declaration": true,
     "declarationMap": true,

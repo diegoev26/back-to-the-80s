@@ -1,6 +1,7 @@
+import { apiPublicRoutes } from "@back-to-the-80s/shared";
+
 export const config = {
-  publicUrl: process.env?.NEXT_PUBLIC_PUBLIC_URL,
-  assets: process.env?.NEXT_PUBLIC_ASSETS_URL,
+  ...apiPublicRoutes(),
 } as const;
 
 export default config;

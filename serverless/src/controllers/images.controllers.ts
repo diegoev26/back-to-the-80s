@@ -1,29 +1,25 @@
 import { Env } from "../types/env.js";
-import { getCorsHeaders } from "../middlewares/cors.js";
 import { fetchImagesFromDrive } from "../services/google.services.js";
+import { sendServerlessResponse } from "../utils/api.utils.js";
 
 export const getGalleryImages = async (
   request: Request,
   env: Env,
 ): Promise<Response> => {
-  const headers = getCorsHeaders(request);
-
   try {
     const images = await fetchImagesFromDrive(env);
 
-    return new Response(JSON.stringify({ success: true, data: images }), {
-      status: 200,
-      headers,
+    return sendServerlessResponse(request, 200, {
+      response: {
+        message: "Imágenes encontradas",
+        data: images,
+      },
     });
   } catch (error: any) {
-    console.error("Error en getGalleryImages:", error.message);
-
-    return new Response(
-      JSON.stringify({
-        success: false,
-        error: "Error al intentar obtener las imágenes desde Google Drive",
-      }),
-      { status: 500, headers },
-    );
+    return sendServerlessResponse(request, 500, {
+      error: {
+        message: `Error al intentar obtener las imágenes desde Google Drive - ${error?.message}`,
+      },
+    });
   }
 };

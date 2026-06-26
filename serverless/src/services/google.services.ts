@@ -1,14 +1,5 @@
+import { GoogleDriveResponse } from "../interfaces/google.interfaces.js";
 import { Env } from "../types/env";
-
-interface GoogleDriveFile {
-  id: string;
-  name: string;
-  mimeType: string;
-}
-
-interface GoogleDriveResponse {
-  files: GoogleDriveFile[];
-}
 
 export const fetchImagesFromDrive = async (env: Env): Promise<any[]> => {
   const { DRIVE_FOLDER_ID, GOOGLE_API_KEY } = env,
@@ -20,10 +11,7 @@ export const fetchImagesFromDrive = async (env: Env): Promise<any[]> => {
 
   const response = await fetch(url, {
     method: "GET",
-    headers: {
-      Accept: "application/json",
-      Referer: "https://fiestabacktothe80s.com.ar",
-    },
+    headers: { Accept: "application/json" },
   });
 
   if (!response.ok) {

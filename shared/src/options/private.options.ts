@@ -1,8 +1,8 @@
-const env = process.env,
-  arrTrue: any[] = [1, "1", "true"];
+import { arrTrue } from "../utils/main.utils";
 
-export const privateOptions = {
-  get apiDebug(): boolean {
-    return arrTrue.includes(env?.API_DEBUG ?? "");
-  },
-} as const;
+export const privateOptions = () =>
+  ({
+    get apiDebug(): boolean {
+      return arrTrue.includes(process.env?.API_DEBUG ?? "");
+    },
+  }) as const;
