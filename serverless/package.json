@@ -3,7 +3,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "(if exist .wrangler rmdir /s /q .wrangler) && wrangler dev"
+    "clean": "if exist .wrangler rmdir /s /q .wrangler",
+    "dev": "wrangler dev"
   },
   "keywords": [],
   "author": "",

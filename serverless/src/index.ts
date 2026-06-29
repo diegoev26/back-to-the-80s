@@ -1,14 +1,18 @@
 import { ExecutionContext } from "@cloudflare/workers-types";
-import { Env } from "./src/types/env.js";
-import { handleOptions, getCorsHeaders } from "./src/middlewares/cors.js";
-import { validateAuth } from "./src/middlewares/auth.js";
-import { handleImageRoutes } from "./src/routes/images.routes.js";
+import { Env } from "./types/env.js";
+import {
+  handleOptions,
+  getCorsHeaders,
+} from "./middlewares/headers.middlewares.js";
+import { validateAuth } from "./middlewares/auth.middlewares.js";
+import { handleImageRoutes } from "./modules/images/images.routes.js";
+import config from "./config/env.config.js";
 
 const ROUTER: Record<
   string,
   (req: Request, env: Env, url: string) => Promise<Response | null>
 > = {
-  "/images": handleImageRoutes,
+  [config.images.url]: handleImageRoutes,
 };
 
 export default {

@@ -14,8 +14,9 @@
     }
   },
   "scripts": {
-    "build": "(if exist dist rmdir /s /q dist) && tsc && tsc-alias --resolve-full-paths",
-    "dev": "nodemon --watch src --ext ts --exec \"npm run build\""
+    "clean": "if exist dist rmdir /s /q dist",
+    "build": "tsc && tsc-alias --resolve-full-paths",
+    "dev": "npm run build && nodemon --watch src --ext ts --exec \"npm run build\""
   },
   "devDependencies": {
     "@types/express": "^5.0.6",

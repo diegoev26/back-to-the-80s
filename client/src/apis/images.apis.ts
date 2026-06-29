@@ -3,4 +3,4 @@ import { apiClient } from "@/lib/api.client";
 import { ApiResponse } from "@back-to-the-80s/shared";
 
 export const getDriveImages = (): Promise<ApiResponse> =>
-  apiClient(`${config.images.url}`);
+  apiClient({ endpoint: config.routes.images.url, method: "GET" });

@@ -1,3 +1,5 @@
+import { sendServerlessResponse } from "../utils/api.utils";
+
 export const getCorsHeaders = (_: Request) => {
   return {
     "Access-Control-Allow-Origin": "*",
@@ -8,11 +10,7 @@ export const getCorsHeaders = (_: Request) => {
 };
 
 export const handleOptions = (request: Request): Response | null => {
-  if (request.method === "OPTIONS") {
-    return new Response(null, {
-      status: 204,
-      headers: getCorsHeaders(request),
-    });
-  }
+  if (request.method === "OPTIONS")
+    return sendServerlessResponse(request, 204, {});
   return null;
 };

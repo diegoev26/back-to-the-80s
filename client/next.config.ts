@@ -1,8 +1,8 @@
 import type { NextConfig } from "next";
+import os from "os";
 import dotenv from "dotenv";
 import path from "path";
 dotenv.config({ path: path.resolve(process.cwd(), "../.env") });
-import os from "os";
 
 const networkInterfaces = os.networkInterfaces(),
   localIPs: string[] = [];
@@ -20,7 +20,6 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   allowedDevOrigins: [...localIPs],
-  transpilePackages: ["@back-to-the-80s/shared"],
 };
 
 export default nextConfig;

@@ -1,5 +1,5 @@
 export interface ServerlessResponseResult {
   statusCode: number;
-  body: string;
+  body: string | undefined;
   headers: Record<string, string>;
 }

@@ -1,11 +1,12 @@
-import { Env } from "../types/env.js";
-import { getGalleryImages } from "../controllers/images.controllers.js";
+import { withCache } from "../../middlewares/cache.middlewares.js";
+import { Env } from "../../types/env.js";
+import { getGalleryImages } from "./images.controllers.js";
 
 type ControllerHandler = (req: Request, env: Env) => Promise<Response>;
 type RouteMap = Record<string, ControllerHandler>;
 
 const ROUTES: RouteMap = {
-  "GET:/": getGalleryImages,
+  "GET:/": withCache(getGalleryImages, 86400),
 };
 
 export const handleImageRoutes = async (

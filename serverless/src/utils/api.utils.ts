@@ -1,6 +1,6 @@
 import type { ApiResponse, ApiResponsePayload } from "@back-to-the-80s/shared";
 import { ServerlessResponseResult } from "../interfaces/api.interfaces.js";
-import { getCorsHeaders } from "../middlewares/cors.js";
+import { getCorsHeaders } from "../middlewares/headers.middlewares.js";
 
 function buildServerlessResponse<
   C extends ApiResponse["code"],
@@ -13,7 +13,7 @@ function buildServerlessResponse<
 
   return {
     statusCode: code,
-    body: JSON.stringify(fullResponse),
+    body: code === 204 ? undefined : JSON.stringify(fullResponse),
     headers: getCorsHeaders(req),
   };
 }

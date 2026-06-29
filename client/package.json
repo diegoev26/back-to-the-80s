@@ -3,8 +3,9 @@
   "description": "",
   "private": true,
   "scripts": {
-    "dev": "(if exist .next rmdir /s /q .next) && next dev",
-    "build": "(if exist out rmdir /s /q out) && (if exist .next rmdir /s /q .next) && next build",
+    "clean": "(if exist out rmdir /s /q out) && (if exist .next rmdir /s /q .next) ",
+    "dev": "next dev",
+    "build": "npx @cloudflare/next-on-pages",
     "start": "next start",
     "lint": "next lint"
   },
@@ -19,6 +20,7 @@
     "react-icons": "^5.5.0"
   },
   "devDependencies": {
+    "@cloudflare/next-on-pages": "^1.13.16",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

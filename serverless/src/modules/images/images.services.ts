@@ -1,5 +1,5 @@
-import { GoogleDriveResponse } from "../interfaces/google.interfaces.js";
-import { Env } from "../types/env";
+import { GoogleDriveResponse } from "./images.interfaces.js";
+import { Env } from "../../types/env.js";
 
 export const fetchImagesFromDrive = async (env: Env): Promise<any[]> => {
   const { DRIVE_FOLDER_ID, GOOGLE_API_KEY } = env,

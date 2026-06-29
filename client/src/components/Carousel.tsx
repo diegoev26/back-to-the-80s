@@ -1,44 +1,62 @@
 "use client";
-
 import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { getDriveImages } from "@/apis/images.apis";
+import { getDriveImages } from "../apis/images.apis";
+import { GoogleDriveFile } from "@back-to-the-80s/shared";
+import { unwrapApi } from "../utils/api.utils";
 
 const CarouselItem = ({
-  fileName,
+  slide,
   alt,
   size,
 }: {
-  fileName: string;
+  slide: GoogleDriveFile | string;
   alt: string;
   size: string;
 }) => {
-  const src = `/${fileName}`;
+  const isDriveFile = typeof slide !== "string",
+    getUrlCandidates = (file: GoogleDriveFile) => [
+      `https://lh3.googleusercontent.com/d/1hAStGDFkRjvfTOdkoA2HLziTF5JdnxWu9{file.id}`,
+      `https://drive.google.com/thumbnail?sz=w1200&id=${file.id}`,
+      `https://docs.google.com/uc?export=view&id=${file.id}`,
+      "/flashback-01.jpg",
+    ];
+
+  const [candidates, setCandidates] = useState<string[]>([]);
+  const [currentIdx, setCurrentIdx] = useState<number>(0);
+
+  useEffect(() => {
+    if (isDriveFile) {
+      setCandidates(getUrlCandidates(slide));
+      setCurrentIdx(0);
+    } else {
+      setCandidates([`/${slide}`]);
+      setCurrentIdx(0);
+    }
+  }, [slide, isDriveFile]);
+
+  const handleError = () => {
+    if (currentIdx < candidates.length - 1) setCurrentIdx((prev) => prev + 1);
+  };
+  const currentSrc = candidates[currentIdx] || "";
 
   return (
     <div
       className={`relative group overflow-hidden rounded-xl border border-white/10 hover:border-primary transition-all duration-500 shadow-2xl ${size} w-full cursor-grab active:cursor-grabbing`}
     >
-      <img
-        src={src}
-        alt={alt}
-        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-2 opacity-80 group-hover:opacity-100"
-        loading="lazy"
-      />
+      {currentSrc && (
+        <img
+          src={currentSrc}
+          alt={alt}
+          onError={handleError}
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-2 opacity-80 group-hover:opacity-100"
+          loading="lazy"
+        />
+      )}
 
       {/* Overlays y Efectos */}
       <div className="absolute inset-0 bg-linear-to-t from-dark via-transparent to-transparent opacity-60 group-hover:opacity-90 transition-opacity" />
-
-      {/*
-      <div className="absolute bottom-0 left-0 p-6 translate-y-10 group-hover:translate-y-0 transition-all duration-500">
-        <p className="text-primary font-black italic text-lg tracking-tighter">
-          VIEW MOMENT
-        </p>
-        <div className="h-1 w-0 group-hover:w-full bg-primary transition-all duration-500" />
-      </div>
-      */}
-
       <div className="absolute inset-0 border-2 border-primary/0 group-hover:border-primary/50 transition-colors duration-500 pointer-events-none" />
     </div>
   );
@@ -46,6 +64,9 @@ const CarouselItem = ({
 
 export default function Carousel() {
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [images, setImages] = useState<GoogleDriveFile[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<boolean>(false);
   const photos: string[] = [
     "flashback-01.jpg",
     "flashback-02.jpg",
@@ -53,6 +74,11 @@ export default function Carousel() {
     "flashback-04.jpg",
     "flashback-05.jpg",
   ];
+
+  const hasDynamicImages = (): boolean =>
+      !loading && !error && images.length > 0,
+    currentSlides = (): GoogleDriveFile[] | string[] =>
+      hasDynamicImages() ? images : photos;
 
   // Loop infinito, alineación al inicio y Autoplay de 4 segundos
   const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -75,9 +101,21 @@ export default function Carousel() {
   }, [emblaApi]);
 
   useEffect(() => {
-    async function initImages() {
-      console.log(await getDriveImages());
-    }
+    const initImages = async (): Promise<void> => {
+      try {
+        setLoading(true);
+        const res = await getDriveImages(),
+          resData = unwrapApi(res);
+
+        if (res.code < 300 && resData)
+          setImages(Array.isArray(resData) ? resData : [resData]);
+        else setError(true);
+      } catch (error: any) {
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    };
 
     initImages();
   }, []);
@@ -154,25 +192,32 @@ export default function Carousel() {
             </svg>
           </button>
 
-          {/* Embla */}
+          {/* Carousel */}
           <div
             className="overflow-hidden cursor-grab active:cursor-grabbing rounded-xl"
             ref={emblaRef}
           >
             {/* Slides */}
             <div className="flex gap-6 select-none">
-              {photos.map((photo, key) => (
-                <div
-                  key={key}
-                  className="flex-none w-[85%] sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.33%-1rem)]"
-                >
-                  <CarouselItem
-                    fileName={photo}
-                    alt={`Back to the 80s - Evento`}
-                    size="aspect-[4/5]"
-                  />
-                </div>
-              ))}
+              {currentSlides().map((slide, key) => {
+                const isDriveFile = typeof slide !== "string",
+                  imageAlt = isDriveFile
+                    ? slide.name
+                    : `Back to the 80s - Evento`;
+
+                return (
+                  <div
+                    key={isDriveFile ? slide.id : `fallback-${key}`}
+                    className="flex-none w-[85%] sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.33%-1rem)]"
+                  >
+                    <CarouselItem
+                      slide={slide}
+                      alt={imageAlt}
+                      size="aspect-[4/5]"
+                    />
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

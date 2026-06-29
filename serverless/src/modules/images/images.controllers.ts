@@ -1,6 +1,6 @@
-import { Env } from "../types/env.js";
-import { fetchImagesFromDrive } from "../services/google.services.js";
-import { sendServerlessResponse } from "../utils/api.utils.js";
+import { fetchImagesFromDrive } from "./images.services.js";
+import { Env } from "../../types/env.js";
+import { sendServerlessResponse } from "../../utils/api.utils.js";
 
 export const getGalleryImages = async (
   request: Request,

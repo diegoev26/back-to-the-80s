@@ -1,7 +1,8 @@
 import config from "@/config/env.config";
-import { ApiRequest, ApiResponse } from "@back-to-the-80s/shared";
+import { ApiClientRequest } from "@/interfaces/api.interfaces";
+import { ApiResponse } from "@back-to-the-80s/shared";
 
-const BASE_URL = `${config?.root?.serverless ?? ""}`;
+const BASE_URL = `${config?.routes?.root?.serverless ?? ""}`;
 
 let userid: string | undefined;
 
@@ -9,14 +10,23 @@ export const setApiUser = (user: string | undefined) => {
   userid = user;
 };
 
-export async function apiClient<T = any, E = any, R = any>(
-  endpoint: string,
-  body?: ApiRequest,
-): Promise<ApiResponse<T, E, R>> {
+export async function apiClient<T = any, E = any, R = any>({
+  method,
+  endpoint,
+  body,
+}: ApiClientRequest): Promise<ApiResponse<T, E, R>> {
   const response = await fetch(`${BASE_URL}${endpoint}`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ ...body, userid: userid ?? "Unknown Client User" }),
+    method,
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${config?.options?.serverlessApiKey}`,
+    },
+    ...(body && {
+      body: JSON.stringify({
+        ...body,
+        userid: userid ?? "Unknown Client User",
+      }),
+    }),
   });
 
   const contentType = response.headers.get("content-type");

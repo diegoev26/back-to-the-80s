@@ -9,13 +9,16 @@
     "shared"
   ],
   "scripts": {
-    "dev:client": "npm run dev -w client",
-    "dev:serverless": "npm run dev -w serverless",
+    "clean:shared": "npm run clean -w shared",
+    "clean:serverless": "npm run clean -w serverless",
+    "clean:client": "npm run clean -w client",
+    "clean:all": "npm run clean:shared && npm run clean:serverless && npm run clean:client",
     "dev:shared": "npm run dev -w @back-to-the-80s/shared",
+    "dev:serverless": "npm run dev -w serverless",
+    "dev:client": "npm run dev -w client",
     "dev:all": "npx concurrently -k -n \"SH,SL,CL\" -c \"yellow,green,cyan\" \"npm run dev:shared\" \"npm run dev:serverless\" \"npm run dev:client\"",
-    "build:client": "npm run build -w client",
-    "build:serverless": "npm run build -w serverless",
     "build:shared": "npm run build -w @back-to-the-80s/shared",
+    "build:client": "npm run build -w client",
     "build:all": "npm run build:shared && npm run build:client"
   },
   "repository": {
