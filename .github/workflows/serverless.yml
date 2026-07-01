@@ -1,0 +1,35 @@
+name: Deploy Serverless (Cloudflare Worker)
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "serverless/**"
+      - "shared/**"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-node-version: 20
+          cache: "npm"
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Compilar paquete Shared
+        run: npm run build:shared
+
+      - name: Desplegar en Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          workingDirectory: "serverless"

@@ -1,0 +1,40 @@
+name: Deploy Client (Cloudflare Page)
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "client/**"
+      - "shared/**"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-node-version: 20
+          cache: "npm"
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Compilar paquete Shared
+        run: npm run build:shared
+
+      - name: Compilar paquete Client
+        run: npm run build:client
+
+      - name: Desplegar en Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: "TU_ACCOUNT_ID_DE_CLOUDFLARE"
+          projectName: "back-to-the-80s"
+          directory: "client/out"
