@@ -17,7 +17,7 @@ const CarouselItem = ({
 }) => {
   const isDriveFile = typeof slide !== "string",
     getUrlCandidates = (file: GoogleDriveFile) => [
-      `https://lh3.googleusercontent.com/d/1hAStGDFkRjvfTOdkoA2HLziTF5JdnxWu9{file.id}`,
+      `https://lh3.googleusercontent.com/d/1hAStGDFkRjvfTOdkoA2HLziTF5JdnxWu9${file.id}`,
       `https://drive.google.com/thumbnail?sz=w1200&id=${file.id}`,
       `https://docs.google.com/uc?export=view&id=${file.id}`,
       "/flashback-01.jpg",
