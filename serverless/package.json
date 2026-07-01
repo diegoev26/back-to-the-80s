@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "clean": "if exist .wrangler rmdir /s /q .wrangler",
-    "dev": "wrangler dev"
+    "dev": "wrangler dev",
+    "dev:remote": "wrangler dev --remote"
   },
   "keywords": [],
   "author": "",
