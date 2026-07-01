@@ -7,6 +7,7 @@ import {
 import { validateAuth } from "./middlewares/auth.middlewares.js";
 import { handleImageRoutes } from "./modules/images/images.routes.js";
 import config from "./config/env.config.js";
+import { sendServerlessResponse } from "./utils/api.utils.js";
 
 const ROUTER: Record<
   string,
@@ -39,12 +40,8 @@ export default {
       }
     }
 
-    return new Response(
-      JSON.stringify({ error: "Ruta o método no encontrado" }),
-      {
-        status: 404,
-        headers: getCorsHeaders(request),
-      },
-    );
+    return sendServerlessResponse(request, 404, {
+      error: { message: "Ruta o método no encontrado" },
+    });
   },
 };
