@@ -1,8 +1,8 @@
-export * from "./types/api.types";
-export * from "./types/main.types";
-export * from "./types/api-generated";
+export * from "./types/api.types.js";
+export * from "./types/main.types.js";
+export * from "./types/api-generated.js";
 
-export * from "./routes/public.routes";
-export * from "./routes/private.routes";
+export * from "./routes/public.routes.js";
+export * from "./routes/private.routes.js";
 
-export * from "./options/private.options";
+export * from "./options/private.options.js";

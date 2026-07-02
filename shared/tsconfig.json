@@ -1,22 +1,28 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "bundler",
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
     "lib": ["esnext", "dom"],
-    "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
+    "baseUrl": "./",
+    "outDir": "./dist",
+    "rootDir": "./src",
     "paths": {
+      "@project/shared": ["src/index.ts"],
       "@project/shared/*": ["src/*"]
     },
-    "composite": true,
+    "types": ["node"],
+    "composite": false,
     "declaration": true,
     "declarationMap": true,
-    "emitDeclarationOnly": true,
-
+    "emitDeclarationOnly": false,
+    "noEmit": false,
     "strict": true,
     "noImplicitAny": true,
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
+    "allowImportingTsExtensions": false,
     "moduleDetection": "force",
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -24,5 +30,5 @@
     "verbatimModuleSyntax": true
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist"]
 }

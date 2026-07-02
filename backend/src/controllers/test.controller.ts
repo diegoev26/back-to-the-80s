@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import { sendResponse } from "functions/api.functions.js";
+import { sendResponse } from "utils/api.utils.js";
 import type { paths } from "@project/shared";
 import axios from "axios";
 import config from "../config/config.js";
