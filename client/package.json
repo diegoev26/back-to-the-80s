@@ -1,16 +1,15 @@
 {
   "name": "client",
-  "description": "",
   "private": true,
   "scripts": {
-    "clean": "(if exist out rmdir /s /q out) && (if exist .next rmdir /s /q .next) ",
-    "dev": "next dev",
+    "clean": "(if exist out rmdir /s /q out) && (if exist .next rmdir /s /q .next)",
+    "dev": "next dev --webpack",
     "build": "npx @cloudflare/next-on-pages",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint"
   },
   "dependencies": {
-    "@back-to-the-80s/shared": "*",
+    "@project/shared": "*",
     "dotenv": "^17.4.2",
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-react": "^8.6.0",

@@ -1,10 +1,6 @@
-export type ResponseData<D = any, R = any> = {
-  data?: D | D[];
-  message?: string;
-  reference?: R | R[];
-};
+import type { ResponseData } from "./main.types.js";
 
-export type ResponseSingleOrArray<T> = ResponseData<T> | ResponseData<T>[];
+type ResponseSingleOrArray<T> = ResponseData<T> | ResponseData<T>[];
 type HttpSuccessCode = 200;
 type HttpEmptyCode = 201 | 204;
 type HttpPartialCode = 207;

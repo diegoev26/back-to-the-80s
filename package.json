@@ -1,24 +1,33 @@
 {
   "name": "back-to-the-80s",
+  "description": "La mejor fiesta de los 80 de Lationoamérica",
   "version": "1.0.0",
-  "description": "",
   "private": true,
   "workspaces": [
+    "shared",
+    "backend",
     "client",
-    "serverless",
-    "shared"
+    "serverless"
   ],
   "scripts": {
-    "clean:shared": "npm run clean -w shared",
-    "clean:serverless": "npm run clean -w serverless",
+    "/* --- LIMPIEZA --- */": "",
+    "clean:shared": "npm run clean -w @project/shared",
     "clean:client": "npm run clean -w client",
-    "clean:all": "npm run clean:shared && npm run clean:serverless && npm run clean:client",
-    "dev:shared": "npm run dev -w @back-to-the-80s/shared",
-    "dev:serverless": "npm run dev -w serverless",
+    "clean:serverless-worker": "npm run clean -w serverless-worker",
+    "/* --- ORQUESTADORES DE LIMPIEZA --- */": "",
+    "clean:ts": "npm run clean:shared && npm run clean:backend && npm run clean:client && npm run clean:serverless-worker",
+    "clean:all": "npm run clean:service && npm run clean:ts",
+    "/* --- DESARROLLO --- */": "",
+    "dev:shared": "npm run dev -w @project/shared",
     "dev:client": "npm run dev -w client",
-    "dev:all": "npx concurrently -k -n \"SH,SL,CL\" -c \"yellow,green,cyan\" \"npm run dev:shared\" \"npm run dev:serverless\" \"npm run dev:client\"",
-    "build:shared": "npm run build -w @back-to-the-80s/shared",
+    "dev:serverless-worker": "npm run dev -w serverless-worker",
+    "dev-remote:serverless-worker": "npm run dev:remote -w serverless-worker",
+    "/* --- ORQUESTADORES DE DESARROLLO --- */": "",
+    "dev:all": "npx concurrently -k -n \"BE,SH,WK,CL\" -c \"yellow,green,cyan\" \"npm run dev:shared\" \"npm run dev:serverless-worker\" \"npm run dev:client\"",
+    "/* --- COMPILACIÓN --- */": "",
+    "build:shared": "npm run build -w @project/shared",
     "build:client": "npm run build -w client",
+    "/* --- ORQUESTADORES DE COMPILACIÓN --- */": "",
     "build:all": "npm run build:shared && npm run build:client"
   },
   "repository": {
@@ -33,6 +42,8 @@
   },
   "homepage": "https://github.com/diegoev26/back-to-the-80s#readme",
   "devDependencies": {
-    "concurrently": "^10.0.3"
+    "@types/node": "^25.9.4",
+    "concurrently": "^10.0.3",
+    "typescript": "^6.0.3"
   }
 }

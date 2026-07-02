@@ -1,3 +1,9 @@
+export type ResponseData<D = any, R = any> = {
+  data?: D | D[];
+  message?: string;
+  reference?: R | R[];
+};
+
 export type FunctionResponse<D = any, E = any, R = any> =
   | {
       status: true;

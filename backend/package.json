@@ -1,0 +1,28 @@
+{
+  "name": "backend",
+  "main": "src/index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "clean": "(if exist dist rmdir /s /q dist) && (if exist tsconfig.tsbuildinfo del /f /q tsconfig.tsbuildinfo)",
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc -b"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/morgan": "^1.9.10",
+    "tsx": "^4.21.0"
+  },
+  "dependencies": {
+    "@project/shared": "*",
+    "axios": "^1.13.5",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.2.4",
+    "express": "^5.2.1",
+    "morgan": "^1.10.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  }
+}

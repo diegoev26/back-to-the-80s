@@ -1,33 +1,14 @@
 {
+  "extends": "../tsconfig.base.json",
   "compilerOptions": {
-    "ignoreDeprecations": "6.0",
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "lib": ["esnext", "dom"],
-    "baseUrl": ".",
-    "outDir": "./dist",
     "rootDir": "./src",
-    "paths": {
-      "@back-to-the-80s/shared": ["src/index.ts"],
-      "@back-to-the-80s/shared/*": ["src/*"]
-    },
-    "types": ["node"],
+    "outDir": "./dist",
     "composite": false,
-    "declaration": true,
-    "declarationMap": true,
     "emitDeclarationOnly": false,
-    "noEmit": false,
-    "strict": true,
-    "noImplicitAny": true,
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
-    "allowImportingTsExtensions": false,
-    "moduleDetection": "force",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "isolatedModules": true,
-    "verbatimModuleSyntax": true
+    "noEmit": false
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "dist"]

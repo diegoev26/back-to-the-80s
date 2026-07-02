@@ -20,6 +20,7 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   allowedDevOrigins: [...localIPs],
+  transpilePackages: ["@project/shared"],
 };
 
 export default nextConfig;
