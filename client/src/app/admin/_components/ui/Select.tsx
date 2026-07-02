@@ -1,7 +1,7 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 import { ChevronDown, Search } from "lucide-react";
-import { SelectProps } from "@/app/admin/_interfaces/ui.interfaces";
+import type { SelectProps } from "@/app/admin/_interfaces/ui.interfaces";
 
 const Select = ({
   options,

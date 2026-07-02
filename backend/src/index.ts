@@ -6,7 +6,7 @@ import { fileURLToPath } from "url";
 import { dirname } from "path";
 
 import config from "./config/config.js";
-import testRoutes from "./routes/test.routes.js";
+import testRoutes from "./modules/service/test/test.routes.js";
 
 const app = express(),
   __filename = fileURLToPath(import.meta.url),

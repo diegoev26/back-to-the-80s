@@ -1,10 +1,11 @@
 import { getRuntimeEnv } from "../utils/env.utils.js";
 
-export const privateRoutes = (env: any) => {
+export const publicOptions = (env: any) => {
   const contextEnv = getRuntimeEnv(env);
+
   return {
-    get root() {
-      return { service: contextEnv?.SERVICE_URL };
+    get url() {
+      return contextEnv?.NEXT_PUBLIC_PUBLIC_URL;
     },
   } as const;
 };

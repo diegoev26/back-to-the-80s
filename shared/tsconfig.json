@@ -6,7 +6,7 @@
     "lib": ["esnext", "dom"],
     "rootDir": "./src",
     "outDir": "./dist",
-    "composite": true,
+    "composite": false,
     "emitDeclarationOnly": false,
     "noEmit": false
   },

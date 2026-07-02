@@ -1,4 +1,4 @@
-import { TimelineStep } from "@/app/admin/_interfaces/ui.interfaces";
+import type { TimelineStep } from "@/app/admin/_interfaces/ui.interfaces";
 import { Check } from "lucide-react";
 
 const Timeline = ({ steps }: { steps: TimelineStep[] }) => {

@@ -1,4 +1,4 @@
-import { getRuntimeEnv } from "../utils/env.utils";
+import { getRuntimeEnv } from "../utils/env.utils.js";
 
 export const privateOptions = (env: any) => {
   const contextEnv = getRuntimeEnv(env);

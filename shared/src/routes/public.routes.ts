@@ -1,4 +1,4 @@
-import { getRuntimeEnv } from "../utils/env.utils";
+import { getRuntimeEnv } from "../utils/env.utils.js";
 
 export const apiPublicRoutes = (env: any) => {
   const contextEnv = getRuntimeEnv(env);

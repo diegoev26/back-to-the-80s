@@ -1,4 +1,4 @@
-import type { ResponseData } from "./main.types";
+import type { ResponseData } from "./main.types.js";
 
 type ResponseSingleOrArray<T> = ResponseData<T> | ResponseData<T>[];
 type HttpSuccessCode = 200;

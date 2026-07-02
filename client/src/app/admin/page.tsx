@@ -1,12 +1,10 @@
 "use client";
+import config from "./_config/config";
 import { useApi } from "./_hooks/test.hook";
-import { publicRoutes } from "@project/shared";
 
 const apiTest = () => {
   const { execute, loading, result } = useApi<{ message: string }>();
-  const handleTest = () => {
-    execute(publicRoutes.test ?? "");
-  };
+  const handleTest = () => execute(config.routes?.test?.url ?? "");
 
   return (
     <div className="p-8 max-w-md mx-auto bg-white rounded-xl shadow-md space-y-4 border border-gray-200">

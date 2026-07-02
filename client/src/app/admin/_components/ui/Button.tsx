@@ -1,6 +1,6 @@
 "use client";
 import React, { forwardRef } from "react";
-import { ButtonProps } from "@/app/admin/_interfaces/ui.interfaces";
+import type { ButtonProps } from "@/app/admin/_interfaces/ui.interfaces";
 import { Loader2 } from "lucide-react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";

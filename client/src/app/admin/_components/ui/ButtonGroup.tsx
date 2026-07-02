@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { ButtonGroupProps } from "@/app/admin/_interfaces/ui.interfaces";
+import type { ButtonGroupProps } from "@/app/admin/_interfaces/ui.interfaces";
 
 export function ButtonGroup({
   tabs,

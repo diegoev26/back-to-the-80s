@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { Calendar } from "lucide-react";
-import { DatePickerProps } from "@/app/admin/_interfaces/ui.interfaces";
+import type { DatePickerProps } from "@/app/admin/_interfaces/ui.interfaces";
 import { formatDateDisplay } from "@/app/admin/_utils/date.utils";
 
 const DatePicker = ({

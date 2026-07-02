@@ -1,4 +1,4 @@
-import { TitleProps } from "@/app/admin/_interfaces/ui.interfaces";
+import type { TitleProps } from "@/app/admin/_interfaces/ui.interfaces";
 
 const Title = ({ text, subtitle }: TitleProps) => {
   return (

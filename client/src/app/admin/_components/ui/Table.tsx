@@ -7,13 +7,13 @@ import {
   getSortedRowModel,
   getFilteredRowModel,
   flexRender,
-  Row,
-  HeaderGroup,
-  Header,
-  Cell,
+  type Row,
+  type HeaderGroup,
+  type Header,
+  type Cell,
 } from "@tanstack/react-table";
 import { Search } from "lucide-react";
-import {
+import type {
   TableProps,
   TableRowProps,
 } from "@/app/admin/_interfaces/ui.interfaces";
