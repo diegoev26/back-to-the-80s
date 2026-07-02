@@ -2,14 +2,15 @@ name: Deploy Client (Cloudflare Page)
 
 on:
   push:
-    branches:
-      - main
+    branches: [main, master]
     paths:
       - "client/**"
       - "shared/**"
+      - ".github/workflows/client.yml"
 
 jobs:
   deploy:
+    if: github.repository != 'diegoev26/template'
     runs-on: ubuntu-latest
 
     steps:
@@ -19,11 +20,11 @@ jobs:
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: "npm"
 
       - name: Instalar dependencias
-        run: npm install
+        run: npm ci --legacy-peer-deps
 
       - name: Compilar paquete Shared
         run: npm run build:shared
@@ -35,6 +36,6 @@ jobs:
         uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: "TU_ACCOUNT_ID_DE_CLOUDFLARE"
-          projectName: "back-to-the-80s"
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
           directory: "client/out"
