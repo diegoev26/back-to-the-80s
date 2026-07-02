@@ -1,53 +1,12 @@
 {
+  "extends": "../tsconfig.base.json",
   "compilerOptions": {
-    // File Layout
-    "rootDir": "./src",
-    "outDir": "./dist",
-
-    // Environment Settings
     "module": "nodenext",
-    "target": "esnext",
-    // For nodejs:
-    "lib": ["esnext"],
-    "types": ["node"],
     "moduleResolution": "nodenext",
-    "baseUrl": "./",
-    "paths": {
-      "*": ["node_modules/*", "src/*"],
-      "@project/shared": ["../shared/src/index.ts"]
-    },
-
-    // Other Outputs
-    "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true,
-
-    // Stricter Typechecking Options
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
-
-    // Style Options
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "allowImportingTsExtensions": false,
-
-    // Recommended Options
-    "strict": true,
-    "noImplicitAny": true,
-    "jsx": "react-jsx",
-    "verbatimModuleSyntax": true,
-    "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "allowJs": true,
-    "checkJs": false,
-    "resolveJsonModule": true
+    "rootDir": "./src",
+    "outDir": "./dist"
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts"],
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "dist"],
   "references": [{ "path": "../shared" }]
 }

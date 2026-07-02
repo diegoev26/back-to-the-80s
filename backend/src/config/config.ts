@@ -6,11 +6,15 @@ const __filename = fileURLToPath(import.meta.url),
   __dirname = dirname(__filename);
 dotenv.config({ path: resolve(__dirname, "../../../.env") });
 
-import { privateOptions, privateRoutes, publicRoutes } from "@project/shared";
+import {
+  privateOptions,
+  privateRoutes,
+  apiPublicRoutes,
+} from "@project/shared";
 
-const config = {
-  port: parseInt(privateOptions?.port || "4000"),
-  routes: { ...privateRoutes, ...publicRoutes },
+const config: Record<"options" | "routes", any> = {
+  options: privateOptions(process.env),
+  routes: { ...privateRoutes(process.env), ...apiPublicRoutes(process.env) },
 } as const;
 
 export default config;

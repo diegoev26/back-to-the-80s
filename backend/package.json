@@ -1,24 +1,18 @@
 {
   "name": "backend",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "src/index.ts",
   "type": "module",
+  "private": true,
   "scripts": {
+    "clean": "(if exist dist rmdir /s /q dist) && (if exist tsconfig.tsbuildinfo del /f /q tsconfig.tsbuildinfo)",
     "dev": "tsx watch src/index.ts",
-    "build": "tsc"
+    "build": "tsc -b"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/morgan": "^1.9.10",
-    "@types/node": "^25.2.2",
-    "ts-node": "^10.9.2",
-    "tsx": "^4.21.0",
-    "typescript": "^5.9.3"
+    "tsx": "^4.21.0"
   },
   "dependencies": {
     "@project/shared": "*",

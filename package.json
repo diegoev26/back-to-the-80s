@@ -1,5 +1,7 @@
 {
   "name": "template",
+  "description": "template for new projects",
+  "version": "0.0.0",
   "private": true,
   "workspaces": [
     "shared",
@@ -8,27 +10,41 @@
     "serverless/worker"
   ],
   "scripts": {
+    "/* --- LIMPIEZA --- */": "",
     "clean:shared": "npm run clean -w @project/shared",
-    "clean:serverless-worker": "npm run clean -w serverless-worker",
+    "clean:backend": "npm run clean -w backend",
     "clean:client": "npm run clean -w client",
-    "clean:all": "npm run clean:shared && npm run clean:serverless-worker && npm run clean:client",
+    "clean:serverless-worker": "npm run clean -w serverless-worker",
+    "clean:service": "(if exist service\\bin rmdir /s /q service\\bin) && (if exist service\\obj rmdir /s /q service\\obj)",
+    "/* --- ORQUESTADORES DE LIMPIEZA --- */": "",
+    "clean:ts": "npm run clean:shared && npm run clean:backend && npm run clean:client && npm run clean:serverless-worker",
+    "clean:all": "npm run clean:service && npm run clean:ts",
+    "/* --- DESARROLLO --- */": "",
     "dev:shared": "npm run dev -w @project/shared",
-    "dev:client": "npm run dev -w client",
     "dev:backend": "npm run dev -w backend",
+    "dev:client": "npm run dev -w client",
     "dev:serverless-worker": "npm run dev -w serverless-worker",
     "dev-remote:serverless-worker": "npm run dev:remote -w serverless-worker",
     "dev:service": "dotnet watch --project service/service.csproj",
-    "types": "npx openapi-typescript http://127.0.0.1:5000/swagger/v1/swagger.json -o ./shared/src/types/api-generated.ts",
+    "/* --- HERRAMIENTAS Y TIPOS --- */": "",
+    "types:generate": "npx openapi-typescript http://127.0.0.1:5000/swagger/v1/swagger.json -o ./shared/src/types/api-generated.ts",
     "sync:types": "node scripts/sync-types.js",
     "sync:types:once": "node scripts/sync-types.js --once",
-    "dev:all": "npx concurrently -k -n \"SH,SL,CL\" -c \"yellow,green,cyan\" \"npm run dev:shared\" \"npm run dev:serverless-worker\" \"npm run dev:client\"",
-    "build:shared": "tsc -p shared/tsconfig.json",
-    "build:client": "npm run build -w client",
+    "/* --- ORQUESTADORES DE DESARROLLO --- */": "",
+    "dev:ts": "npx concurrently -k -n \"BE,SH,WK,CL\" -c \"blue,yellow,green,cyan\" \"npm run dev:backend\" \"npm run dev:shared\" \"npm run dev:serverless-worker\" \"npm run dev:client\"",
+    "dev:all": "npx concurrently -k -n \"SV,SYNC,BE,SH,WK,CL\" -c \"magenta,purple,blue,yellow,green,cyan\" \"npm run dev:service\" \"npm run sync:types\" \"npm run dev:backend\" \"npm run dev:shared\" \"npm run dev:serverless-worker\" \"npm run dev:client\"",
+    "/* --- COMPILACIÓN --- */": "",
+    "build:shared": "npm run build -w @project/shared",
     "build:backend": "npm run build -w backend",
+    "build:client": "npm run build -w client",
     "build:service": "dotnet publish -c Release -o out",
-    "build:all": "npm run build:service && npm run sync:types:once && npm run build:shared && npm run build:backend && npm run build:client"
+    "/* --- ORQUESTADORES DE COMPILACIÓN --- */": "",
+    "build:ts": "npm run build:shared && npm run build:backend && npm run build:client",
+    "build:all": "npm run build:service && npm run sync:types:once && npm run build:ts"
   },
   "devDependencies": {
-    "concurrently": "^10.0.3"
+    "@types/node": "^25.9.4",
+    "concurrently": "^10.0.3",
+    "typescript": "^6.0.3"
   }
 }

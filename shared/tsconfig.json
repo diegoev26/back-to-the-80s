@@ -1,33 +1,14 @@
 {
+  "extends": "../tsconfig.base.json",
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "lib": ["esnext", "dom"],
-    "ignoreDeprecations": "6.0",
-    "baseUrl": "./",
-    "outDir": "./dist",
     "rootDir": "./src",
-    "paths": {
-      "@project/shared": ["src/index.ts"],
-      "@project/shared/*": ["src/*"]
-    },
-    "types": ["node"],
-    "composite": false,
-    "declaration": true,
-    "declarationMap": true,
+    "outDir": "./dist",
+    "composite": true,
     "emitDeclarationOnly": false,
-    "noEmit": false,
-    "strict": true,
-    "noImplicitAny": true,
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
-    "allowImportingTsExtensions": false,
-    "moduleDetection": "force",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "isolatedModules": true,
-    "verbatimModuleSyntax": true
+    "noEmit": false
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "dist"]

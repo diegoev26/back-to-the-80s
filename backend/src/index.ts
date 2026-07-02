@@ -20,7 +20,7 @@ app.use(express.static(__dirname + "/public"));
 
 app.use("/api", testRoutes);
 
-app.set("port", config.port);
+app.set("port", config.options?.port);
 app.listen(app.get("port"), (err) =>
   err ? console.error(err) : console.log(app.get("port")),
 );
