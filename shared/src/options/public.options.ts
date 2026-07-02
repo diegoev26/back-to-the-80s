@@ -7,5 +7,8 @@ export const publicOptions = (env: any) => {
     get url() {
       return contextEnv?.NEXT_PUBLIC_PUBLIC_URL;
     },
+    get serverlessApiKey() {
+      return contextEnv?.NEXT_PUBLIC_API_SERVERLESS_AUTH;
+    },
   } as const;
 };

@@ -1,4 +1,4 @@
-import { apiPublicRoutes } from "@back-to-the-80s/shared";
+import { apiPublicRoutes } from "@project/shared";
 import { env } from "cloudflare:workers";
 
 export const config = {

@@ -1,4 +1,4 @@
-import { apiPublicRoutes, publicOptions } from "@back-to-the-80s/shared";
+import { apiPublicRoutes, publicOptions } from "@project/shared";
 
 const clientEnv = {
     NEXT_PUBLIC_PUBLIC_URL: process.env?.NEXT_PUBLIC_PUBLIC_URL,

@@ -7,13 +7,13 @@ export const apiPublicRoutes = (env: any) => {
     get root() {
       return {
         client: contextEnv?.NEXT_PUBLIC_PUBLIC_URL,
-        gateway: contextEnv?.NEXT_PUBLIC_GATEWAY_URL,
-        worker: contextEnv?.NEXT_PUBLIC_API_SERVERLESS_WORKER_URL,
+        assets: contextEnv?.NEXT_PUBLIC_ASSETS_URL,
+        serverless: contextEnv?.NEXT_PUBLIC_API_SERVERLESS_URL,
       };
     },
-    get test() {
+    get images() {
       return {
-        url: contextEnv?.NEXT_PUBLIC_API_URL_TEST,
+        url: contextEnv?.NEXT_PUBLIC_API_ROUTES_SERVERLESS_IMAGES_URL,
       };
     },
   } as const;

@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { getDriveImages } from "../apis/images.apis";
-import { GoogleDriveFile } from "@back-to-the-80s/shared";
+import type { GoogleDriveFile } from "@project/shared";
 import { unwrapApi } from "../utils/api.utils";
 
 const CarouselItem = ({

@@ -1,5 +1,5 @@
 {
-  "name": "serverless",
+  "name": "serverless-worker",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@back-to-the-80s/shared": "*"
+    "@project/shared": "*"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20260625.1",
