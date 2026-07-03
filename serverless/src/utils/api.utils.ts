@@ -1,4 +1,4 @@
-import type { ApiResponse, ApiResponsePayload } from "@back-to-the-80s/shared";
+import type { ApiResponse, ApiResponsePayload } from "@project/shared";
 import { ServerlessResponseResult } from "../interfaces/api.interfaces.js";
 import { getCorsHeaders } from "../middlewares/headers.middlewares.js";
 

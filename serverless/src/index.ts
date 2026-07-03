@@ -1,9 +1,6 @@
 import { ExecutionContext } from "@cloudflare/workers-types";
 import { Env } from "./types/env.js";
-import {
-  handleOptions,
-  getCorsHeaders,
-} from "./middlewares/headers.middlewares.js";
+import { handleOptions } from "./middlewares/headers.middlewares.js";
 import { validateAuth } from "./middlewares/auth.middlewares.js";
 import { handleImageRoutes } from "./modules/images/images.routes.js";
 import config from "./config/env.config.js";
