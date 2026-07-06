@@ -3,7 +3,6 @@ import CommunityCard from "@/components/ComunityCard";
 import Nav from "@/components/Nav";
 
 export const dynamic = "force-dynamic";
-export const runtime = "edge";
 
 export default function Page() {
   return (
