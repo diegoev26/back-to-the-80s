@@ -21,6 +21,9 @@ const nextConfig: NextConfig = {
   },
   allowedDevOrigins: [...localIPs],
   transpilePackages: ["@project/shared"],
+  turbopack: {
+    root: `${path.join(__dirname)}/../`,
+  },
 };
 
 export default nextConfig;
