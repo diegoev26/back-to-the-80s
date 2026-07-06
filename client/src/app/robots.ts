@@ -1,6 +1,6 @@
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
 import config from "@/config/env.config";
-const { url: publicUrl } = config.routes.root;
+const { url: publicUrl } = config.options;
 export const dynamic = "force-static";
 
 export default function robots(): MetadataRoute.Robots {

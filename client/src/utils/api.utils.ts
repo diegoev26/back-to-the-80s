@@ -1,4 +1,4 @@
-import { ApiResponse, ResponseData } from "@back-to-the-80s/shared";
+import type { ApiResponse, ResponseData } from "@project/shared";
 
 export function unwrapApi<T, E>(res: ApiResponse<T, E>): T | T[];
 export function unwrapApi<T, E>(

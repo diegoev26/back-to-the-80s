@@ -1,5 +1,5 @@
 import { HttpMethod } from "@/types/api.types";
-import { ApiRequest } from "@back-to-the-80s/shared";
+import type { ApiRequest } from "@project/shared";
 
 export interface ApiClientRequest<T = any> {
   method: HttpMethod;

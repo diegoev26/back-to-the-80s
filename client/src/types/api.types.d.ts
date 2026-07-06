@@ -1,4 +1,4 @@
-import { ApiResponse, ApiRequest } from "@hafele/shared";
+import { ApiResponse, ApiRequest } from "@project/shared";
 
 export type ApiFunction<T, P> = (
   params: ApiRequest<P>,

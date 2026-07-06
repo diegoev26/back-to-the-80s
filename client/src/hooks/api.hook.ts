@@ -1,9 +1,9 @@
 "use client";
 import { useState, useCallback, useEffect } from "react";
-import { ApiRequest, ApiResponse } from "@back-to-the-80s/shared";
+import type { ApiRequest, ApiResponse } from "@project/shared";
 import { useGlobalContext } from "@/context/global.context";
 import { setApiUser } from "@/lib/api.client";
-import { ApiFunction } from "@/types/api.types";
+import type { ApiFunction } from "@/types/api.types";
 
 export function useApi<T = any, P = any>() {
   const [data, setData] = useState<ApiResponse<T> | null>(null);

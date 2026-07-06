@@ -1,6 +1,6 @@
 import config from "@/config/env.config";
-import { ApiClientRequest } from "@/interfaces/api.interfaces";
-import { ApiResponse } from "@back-to-the-80s/shared";
+import type { ApiClientRequest } from "@/interfaces/api.interfaces";
+import type { ApiResponse } from "@project/shared";
 
 const BASE_URL = `${config?.routes?.root?.serverless ?? ""}`;
 
