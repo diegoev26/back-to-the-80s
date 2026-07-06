@@ -3,10 +3,9 @@ import config from "@/config/env.config";
 
 export const dynamic = "force-static";
 export const runtime = "edge";
-const publicUrl = config?.options?.url;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = publicUrl || "http://localhost";
+  const baseUrl = config?.options?.url || "http://localhost";
 
   const staticRoutes = [""].map((route) => ({
     url: `${baseUrl}${route}`,
