@@ -30,9 +30,7 @@ jobs:
         run: npm run build:shared
 
       - name: Compilar paquete Client
-        run: npx @cloudflare/next-on-pages
-        env:
-          NEXT_PROJECT_PATH: "client"
+        run: npx @cloudflare/next-on-pages --cwd client
 
       - name: Desplegar en Cloudflare Pages
         uses: cloudflare/pages-action@v1
@@ -40,4 +38,4 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
-          directory: "client/.next"
+          directory: "client/.vercel/output"
