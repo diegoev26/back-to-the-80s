@@ -31,8 +31,6 @@ jobs:
 
       - name: Compilar paquete Client
         run: npx @cloudflare/next-on-pages
-        env:
-          NEXT_PROJECT_PATH: "client"
 
       - name: Desplegar en Cloudflare Pages
         uses: cloudflare/pages-action@v1
@@ -40,4 +38,5 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
-          directory: "client/.next"
+          directory: ".next"
+          workingDirectory: "client"
