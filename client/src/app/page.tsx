@@ -2,6 +2,9 @@ import Carousel from "@/components/Carousel";
 import CommunityCard from "@/components/ComunityCard";
 import Nav from "@/components/Nav";
 
+export const dynamic = "force-dynamic";
+export const runtime = "edge";
+
 export default function Page() {
   return (
     <main className="bg-dark text-muted min-h-screen selection:bg-primary selection:text-dark font-primary">
