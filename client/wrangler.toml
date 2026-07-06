@@ -1,0 +1,2 @@
+name = "fiestabacktothe80s"
+compatibility_flags = [ "nodejs_compat" ]
