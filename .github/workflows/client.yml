@@ -39,4 +39,4 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
           workingDirectory: "client"
-          directory: "client/.vercel/output"
+          directory: ".vercel/output/static"
