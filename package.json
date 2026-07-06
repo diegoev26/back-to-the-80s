@@ -25,7 +25,6 @@
     "/* --- COMPILACIÓN --- */": "",
     "build:shared": "npm run build -w @project/shared",
     "build:client": "npm run build -w client",
-    "build:client-pages": "npm run build:pages -w client",
     "/* --- ORQUESTADORES DE COMPILACIÓN --- */": "",
     "build:all": "npm run build:shared && npm run build:client"
   },

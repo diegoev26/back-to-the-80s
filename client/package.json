@@ -5,7 +5,7 @@
     "clean": "(if exist out rmdir /s /q out) && (if exist .next rmdir /s /q .next)",
     "dev": "next dev --webpack",
     "build": "next build",
-    "build:pages": "npx @cloudflare/next-on-pages --root-dir=client",
+    "build:pages": "npx @cloudflare/next-on-pages",
     "start": "next start",
     "lint": "eslint"
   },
