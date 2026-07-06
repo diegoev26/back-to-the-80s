@@ -31,6 +31,12 @@ jobs:
 
       - name: Compilar paquete Client
         run: npm run build:client-pages
+        env:
+          NEXT_PUBLIC_PUBLIC_URL: "https://www.fiestabacktothe80s.com.ar"
+          NEXT_PUBLIC_ASSETS_URL: "/assets"
+          NEXT_PUBLIC_API_SERVERLESS_URL: "https://api.fiestabacktothe80s.workers.dev"
+          NEXT_PUBLIC_API_SERVERLESS_AUTH: "0dd2ad3950601fff49205b7b153c35bd"
+          NEXT_PUBLIC_API_ROUTES_SERVERLESS_IMAGES_URL: "/images"
 
       - name: Desplegar en Cloudflare Pages
         uses: cloudflare/pages-action@v1
