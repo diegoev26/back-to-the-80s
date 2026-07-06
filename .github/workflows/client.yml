@@ -30,8 +30,7 @@ jobs:
         run: npm run build:shared
 
       - name: Compilar paquete Client
-        working-directory: ./client
-        run: npm run build:pages
+        run: npx @cloudflare/next-on-pages client
 
       - name: Desplegar en Cloudflare Pages
         uses: cloudflare/pages-action@v1
