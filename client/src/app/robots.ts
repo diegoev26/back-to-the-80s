@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import config from "@/config/env.config";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "force-static";
 export const runtime = "edge";
 
 export default function robots(): MetadataRoute.Robots {
