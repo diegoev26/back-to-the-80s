@@ -30,7 +30,7 @@ jobs:
         run: npm run build:shared
 
       - name: Compilar paquete Client
-        run: npm run build:client
+        run: npm run build:client-pages
 
       - name: Desplegar en Cloudflare Pages
         uses: cloudflare/pages-action@v1
