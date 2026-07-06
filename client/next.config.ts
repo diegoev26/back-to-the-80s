@@ -5,7 +5,8 @@ import path from "path";
 dotenv.config({ path: path.resolve(process.cwd(), "../.env") });
 
 const networkInterfaces = os.networkInterfaces(),
-  localIPs: string[] = [];
+  localIPs: string[] = [],
+  sharedRoot = path.resolve(__dirname, "..");
 Object.keys(networkInterfaces).forEach((interfaceName) => {
   networkInterfaces[interfaceName]?.forEach((iface) => {
     if (iface.family === "IPv4" && !iface.internal)
@@ -21,8 +22,9 @@ const nextConfig: NextConfig = {
   },
   allowedDevOrigins: [...localIPs],
   transpilePackages: ["@project/shared"],
+  outputFileTracingRoot: sharedRoot,
   turbopack: {
-    root: `${path.join(__dirname)}/../`,
+    root: sharedRoot,
   },
 };
 
