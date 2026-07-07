@@ -15,13 +15,11 @@ Object.keys(networkInterfaces).forEach((interfaceName) => {
 });
 
 const nextConfig: NextConfig = {
-  productionBrowserSourceMaps: true,
   trailingSlash: true,
   images: {
     unoptimized: true,
   },
   allowedDevOrigins: [...localIPs],
-  transpilePackages: ["@project/shared"],
   outputFileTracingRoot: sharedRoot,
   turbopack: {
     root: sharedRoot,
