@@ -4,9 +4,7 @@ compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = ".vercel/output/static"
 keep_vars = true
 
-[
-vars
-]
+[vars]
 NEXT_PUBLIC_PUBLIC_URL="https://www.fiestabacktothe80s.com.ar"
 NEXT_PUBLIC_ASSETS_URL="/assets"
 NEXT_PUBLIC_API_SERVERLESS_URL="https://api.fiestabacktothe80s.workers.dev"
