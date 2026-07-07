@@ -15,7 +15,7 @@ Object.keys(networkInterfaces).forEach((interfaceName) => {
 });
 
 const nextConfig: NextConfig = {
-  //output: "export",
+  productionBrowserSourceMaps: true,
   trailingSlash: true,
   images: {
     unoptimized: true,

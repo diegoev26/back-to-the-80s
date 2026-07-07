@@ -10,7 +10,7 @@ on:
 
 jobs:
   deploy:
-    if: github.repository != 'diegoev26/template'
+    if: github.repository != vars.TEMPLATE_REPO
     runs-on: ubuntu-latest
 
     steps:
