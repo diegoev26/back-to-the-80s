@@ -1,3 +1,4 @@
+"use client";
 import { FaInstagram, FaFacebookF, FaTiktok, FaYoutube } from "react-icons/fa";
 
 const socialLinks = [
