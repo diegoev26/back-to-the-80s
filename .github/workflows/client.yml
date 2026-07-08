@@ -12,6 +12,12 @@ jobs:
   deploy:
     if: github.repository != vars.TEMPLATE_REPO
     runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_PUBLIC_URL: ${{ vars.NEXT_PUBLIC_PUBLIC_URL }}
+      NEXT_PUBLIC_ASSETS_URL: ${{ vars.NEXT_PUBLIC_ASSETS_URL }}
+      NEXT_PUBLIC_API_SERVERLESS_URL: ${{ vars.NEXT_PUBLIC_API_SERVERLESS_URL }}
+      NEXT_PUBLIC_API_SERVERLESS_AUTH: ${{ secrets.NEXT_PUBLIC_API_SERVERLESS_AUTH }}
+      NEXT_PUBLIC_API_ROUTES_SERVERLESS_IMAGES_URL: ${{ vars.NEXT_PUBLIC_API_ROUTES_SERVERLESS_IMAGES_URL }}
 
     steps:
       - name: Checkout del repositorio
@@ -31,6 +37,17 @@ jobs:
 
       - name: Compilar paquete Client
         run: npm run build:client-pages
+
+      - name: Generar wrangler.toml desde template
+        working-directory: client
+        run: |
+          sed \
+            -e "s|__NEXT_PUBLIC_PUBLIC_URL__|${NEXT_PUBLIC_PUBLIC_URL}|g" \
+            -e "s|__NEXT_PUBLIC_ASSETS_URL__|${NEXT_PUBLIC_ASSETS_URL}|g" \
+            -e "s|__NEXT_PUBLIC_API_SERVERLESS_URL__|${NEXT_PUBLIC_API_SERVERLESS_URL}|g" \
+            -e "s|__NEXT_PUBLIC_API_SERVERLESS_AUTH__|${NEXT_PUBLIC_API_SERVERLESS_AUTH}|g" \
+            -e "s|__NEXT_PUBLIC_API_ROUTES_SERVERLESS_IMAGES_URL__|${NEXT_PUBLIC_API_ROUTES_SERVERLESS_IMAGES_URL}|g" \
+            wrangler.toml.template > wrangler.toml
 
       - name: Desplegar en Cloudflare Pages
         working-directory: client

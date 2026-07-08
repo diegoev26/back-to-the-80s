@@ -15,6 +15,7 @@
 **/build/
 **/.serverless/
 **/.esbuild/
+client/wrangler.toml
 
 .env
 .env.*
