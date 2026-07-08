@@ -21,14 +21,14 @@ export default function Hero() {
           className={`w-screen h-[56.25vw] min-h-screen min-w-[177.77vh] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none transition-opacity duration-700 ${
             isVideoLoaded ? "opacity-60" : "opacity-0"
           }`}
-          style={{ pointerEvents: "none", touchAction: "none" }}
+          style={{ pointerEvents: "none" }}
           allow="autoplay; fullscreen"
           onLoad={() => setIsVideoLoaded(true)}
         ></iframe>
 
         <div
           className="absolute inset-0 z-20 bg-transparent"
-          style={{ pointerEvents: "auto", touchAction: "none" }}
+          style={{ pointerEvents: "auto" }}
         />
       </div>
 
